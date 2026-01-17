@@ -1,11 +1,30 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
+/**
+ * Combine and deduplicate Tailwind CSS class values into a single class string.
+ *
+ * @param inputs - One or more clsx-compatible class values (strings, arrays, objects, etc.) to be merged
+ * @returns The resulting class string with Tailwind-specific class conflicts resolved
+ */
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-// Format a number as currency with sensible defaults
+/**
+ * Format a numeric value as a localized currency string with configurable options.
+ *
+ * @param value - The number (or numeric string) to format. If `null` or `undefined`, the function returns the `fallback`.
+ * @param options - Formatting options.
+ * @param options.currency - ISO 4217 currency code to use (default: `"USD"`).
+ * @param options.locale - BCP 47 locale to use for formatting (default: `"en-US"`).
+ * @param options.minimumFractionDigits - Minimum fraction digits to display.
+ * @param options.maximumFractionDigits - Maximum fraction digits to display.
+ * @param options.compact - Use compact notation like `1.2K` when `true` (default: `false`).
+ * @param options.fallback - String to return when `value` is `null`, `undefined`, or not a finite number (default: `"-"`).
+ * @param options.showSign - Prefix positive values with `+` when `true` (default: `false`).
+ * @returns The formatted currency string, or the `fallback` when the input is `null`, `undefined`, or not a finite number.
+ */
 export function formatCurrency(
   value: number | string | null | undefined,
   options?: {
