@@ -18,6 +18,12 @@ export const metadata: Metadata = {
   description: "Crypto Screener App with a built-in High-Frequency Terminal & Dashboard",
 };
 
+/**
+ * Root layout component that wraps application pages with global fonts, theme, and header.
+ *
+ * @param children - The page content to render inside the layout's <body>.
+ * @returns The root HTML structure for the application pages, including <html> and <body>.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
