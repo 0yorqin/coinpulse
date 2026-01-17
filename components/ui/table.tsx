@@ -4,6 +4,13 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Renders a table element inside a horizontally scrollable container and merges provided class names with defaults.
+ *
+ * @param className - Additional CSS class names to append to the table's default classes
+ * @param props - Additional props are spread onto the underlying `table` element
+ * @returns The rendered table wrapped in a container that enables horizontal scrolling
+ */
 function Table({ className, ...props }: React.ComponentProps<"table">) {
   return (
     <div
@@ -19,6 +26,11 @@ function Table({ className, ...props }: React.ComponentProps<"table">) {
   )
 }
 
+/**
+ * Renders a table header (<thead>) element with data-slot "table-header" and default row-bottom-border styling.
+ *
+ * @returns A `thead` element with `data-slot="table-header"`, the default `[&_tr]:border-b` styling merged into `className`, and any other props spread onto the element.
+ */
 function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
   return (
     <thead
@@ -29,6 +41,13 @@ function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
   )
 }
 
+/**
+ * Renders a styled `tbody` element tagged with `data-slot="table-body"` for composition.
+ *
+ * The element includes default body styling (removes the bottom border on the last row), merges any provided `className`, and forwards all other props to the underlying `tbody`.
+ *
+ * @returns The rendered `tbody` element with merged classes and forwarded props
+ */
 function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {
   return (
     <tbody
@@ -39,6 +58,11 @@ function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {
   )
 }
 
+/**
+ * Renders a styled table footer element for use as a table's <tfoot>.
+ *
+ * @returns A `<tfoot>` element with default footer styles (muted background, top border, medium font) that merges `className` with its defaults and spreads any other provided props.
+ */
 function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
   return (
     <tfoot
@@ -52,6 +76,13 @@ function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
   )
 }
 
+/**
+ * Renders a table row (<tr>) with standardized styles and a data-slot="table-row" attribute for composition.
+ *
+ * @param className - Additional CSS classes merged with the component's default styles.
+ * @param props - Additional props forwarded to the underlying `<tr>` element.
+ * @returns The rendered table row element with merged classes and forwarded props.
+ */
 function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
   return (
     <tr
@@ -65,6 +96,12 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
   )
 }
 
+/**
+ * Renders a table header cell with default header styling and a data-slot for composition.
+ *
+ * @param className - Additional CSS class names to merge with the component's default styles
+ * @returns A `<th>` element with default table header classes, the `data-slot="table-head"` attribute, and any other props applied
+ */
 function TableHead({ className, ...props }: React.ComponentProps<"th">) {
   return (
     <th
@@ -78,6 +115,13 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
   )
 }
 
+/**
+ * Renders a table cell (`td`) with standardized padding, vertical alignment, and checkbox-aware spacing.
+ *
+ * The element is tagged with `data-slot="table-cell"`, merges the provided `className` with default styles, and spreads any other props onto the underlying `td`.
+ *
+ * @returns A `td` element with default styling and any provided props applied.
+ */
 function TableCell({ className, ...props }: React.ComponentProps<"td">) {
   return (
     <td
@@ -91,6 +135,12 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
   )
 }
 
+/**
+ * Renders a table caption element with default muted styling and a `data-slot="table-caption"` attribute.
+ *
+ * @param className - Additional CSS classes to merge with the component's default styles
+ * @returns The rendered caption element
+ */
 function TableCaption({
   className,
   ...props

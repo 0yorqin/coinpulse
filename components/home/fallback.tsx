@@ -66,6 +66,11 @@ export const TrendingCoinsFallback = () => {
   );
 };
 
+/**
+ * A placeholder React component that renders no UI.
+ *
+ * @returns `null` to render nothing.
+ */
 export default function FallbackBundle() {
   return null;
 }
